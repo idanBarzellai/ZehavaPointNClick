@@ -27,8 +27,8 @@ const scenes = [
         width: 20,
         type: "neutral",
         portrait: "happy",
-        dialogue:
-          "The berries whisper softly... and reveal a tiny wooden key hidden under the leaves!",
+        dialogue:"There are a lot of berries here!",
+         
       },{
         id: "berries",
         image: "assets/objects/berries.png",
@@ -38,7 +38,7 @@ const scenes = [
         type: "keyItem",
         portrait: "happy",
         dialogue:
-          "There are a lot of berries here!",
+           "The berries whisper softly... and reveal a tiny wooden key hidden under the leaves!",
       },{
         id: "berries",
         image: "assets/objects/berries.png",
@@ -409,6 +409,15 @@ function moveZehavaTo(x, y, callback) {
   const targetDirection =
     clampedPosition.x >= zehavaPosition.x ? "right" : "left";
 
+  const dx = clampedPosition.x - zehavaPosition.x;
+  const dy = clampedPosition.y - zehavaPosition.y;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  const speed = 35; // percent-of-screen per second
+  const duration = Math.max(distance / speed, 0.25);
+
+  zehava.style.transition = `left ${duration}s linear, top ${duration}s linear`;
+
   startWalkAnimation(targetDirection);
 
   isMoving = true;
@@ -427,7 +436,7 @@ function moveZehavaTo(x, y, callback) {
     if (callback) {
       callback();
     }
-  }, 1200);
+  }, duration * 1000);
 }
 
 function handleObjectClick(object) {
@@ -439,7 +448,7 @@ function handleObjectClick(object) {
     hasKey = true;
 
     if (inventoryUI) {
-      inventoryUI.classList.remove("hidden");
+      inventoryUI.classList.add("has-item");
     }
 
     showDialogue(object.dialogue, {
@@ -517,14 +526,7 @@ function goToNextScene() {
 
   if (nextSceneIndex >= 0) {
     currentSceneIndex = nextSceneIndex;
-
     renderScene(scenes[currentSceneIndex]);
-
-    zehava.style.left = `${startZehavaPosition.x}%`;
-    zehava.style.top = `${startZehavaPosition.y}%`;
-
-    zehavaPosition.x = startZehavaPosition.x;
-    zehavaPosition.y = startZehavaPosition.y;
   }
 
   pendingNextScene = null;
@@ -558,7 +560,7 @@ function resetSceneState() {
   hasKey = false;
 
   if (inventoryUI) {
-    inventoryUI.classList.add("hidden");
+    inventoryUI.classList.remove("has-item");
   }
 
   const lifeIcons = document.querySelectorAll(".life-icon");
@@ -597,6 +599,10 @@ function clampToSceneBounds(x, y) {
 }
 
 sceneElement.addEventListener("click", (event) => {
+  if (dialogueOverlay.contains(event.target)) {
+    return;
+  }
+
   if (event.target.closest(".object")) {
     return;
   }
