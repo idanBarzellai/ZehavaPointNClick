@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Zehava and the Three Bears</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <main class="game-container">
+
+    <section
+      id="scene"
+      class="scene"
+      aria-label="Game scene"
+    >
+
+      <!-- Zehava Character -->
+      <img
+        id="zehava"
+        class="zehava"
+        src="assets/characters/zehava.png"
+        alt="Zehava"
+      />
+
+      <!-- Clickable Objects -->
+      <div
+        id="objectLayer"
+        class="object-layer"
+        aria-label="Clickable objects"
+      ></div>
+
+      <!-- Dialogue Overlay -->
+      <div
+        id="dialogueOverlay"
+        class="dialogue-overlay hidden"
+      >
+        <div class="dialogue-box">
+
+          <img
+            id="dialoguePortrait"
+            class="dialogue-portrait"
+            src="assets/ui/zehava-portrait.png"
+            alt="Zehava portrait"
+          />
+
+          <div class="dialogue-content">
+
+            <p id="dialogueText" class="dialogue-text">
+              Dialogue goes here
+            </p>
+
+            <button
+              id="dialogueButton"
+              class="dialogue-button"
+            >
+              Continue
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Lives UI -->
+      <div id="livesUI" class="lives-ui">
+
+        <img src="assets/ui/heart.png" class="life-icon" alt="Life" />
+        <img src="assets/ui/heart.png" class="life-icon" alt="Life" />
+        <img src="assets/ui/heart.png" class="life-icon" alt="Life" />
+
+      </div>
+
+    </section>
+
+  </main>
+</body>
+</html>
