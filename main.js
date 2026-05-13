@@ -4,31 +4,53 @@ const scenes = [
     background: "assets/backgrounds/forest-house.png",
     nextSceneId: "living-room",
     bounds: {
-  minX: 8,
-  maxX: 92,
-  minY: 45,
-  maxY: 85
-},
+      minX: 16,
+      maxX: 92,
+      minY: 20,
+      maxY: 64,
+    },
     objects: [
       {
         id: "door",
-        image: "assets/objects/door.png",
-        x: 76,
-        y: 52,
-        width: 14,
-        type: "correct",
-        dialogue: "The little house is quiet. Zehava wonders who lives inside..."
+        x: 95,
+        y: 45,
+        width: 20,
+        type: "lockedDoor",
+        portrait: "thinking",
+        dialogue: "The door is locked tight. Zehava needs to find a key first.",
       },
       {
         id: "berries",
         image: "assets/objects/berries.png",
-        x: 25,
-        y: 72,
-        width: 10,
+        x: 68,
+        y: 34,
+        width: 20,
         type: "neutral",
-        dialogue: "Sweet berries! But Zehava is curious about the house, not the forest snacks."
-      }
-    ]
+        portrait: "happy",
+        dialogue:
+          "The berries whisper softly... and reveal a tiny wooden key hidden under the leaves!",
+      },{
+        id: "berries",
+        image: "assets/objects/berries.png",
+        x: 32,
+        y: 30,
+        width: 15,
+        type: "keyItem",
+        portrait: "happy",
+        dialogue:
+          "There are a lot of berries here!",
+      },{
+        id: "berries",
+        image: "assets/objects/berries.png",
+        x: 50   ,
+        y: 73,
+        width: 18,
+        type: "neutral",
+        portrait: "happy",
+        dialogue:
+          "Those are some good-looking berries, but Zehava is not hungry right now.",
+      },
+    ],
   },
 
   {
@@ -36,11 +58,11 @@ const scenes = [
     background: "assets/backgrounds/living-room.png",
     nextSceneId: "kitchen",
     bounds: {
-  minX: 8,
-  maxX: 92,
-  minY: 45,
-  maxY: 85
-},
+      minX: 8,
+      maxX: 92,
+      minY: 45,
+      maxY: 85,
+    },
     objects: [
       {
         id: "big-chair",
@@ -49,7 +71,8 @@ const scenes = [
         y: 62,
         width: 16,
         type: "wrong",
-        dialogue: "This chair is much too big!"
+        portrait: "annoyed",
+        dialogue: "This chair is much too big!",
       },
       {
         id: "small-chair",
@@ -58,7 +81,8 @@ const scenes = [
         y: 66,
         width: 13,
         type: "wrong",
-        dialogue: "This chair is much too small!"
+        portrait: "annoyed",
+        dialogue: "This chair is much too small!",
       },
       {
         id: "just-right-chair",
@@ -67,7 +91,8 @@ const scenes = [
         y: 64,
         width: 14,
         type: "correct",
-        dialogue: "This chair feels just right. Zehava wants to explore further."
+        portrait: "happy",
+        dialogue: "This chair feels just right. Zehava wants to explore further.",
       },
       {
         id: "carpet",
@@ -76,7 +101,8 @@ const scenes = [
         y: 82,
         width: 22,
         type: "neutral",
-        dialogue: "A cozy carpet, but it does not help Zehava continue."
+        portrait: "thinking",
+        dialogue: "A cozy carpet, but it does not help Zehava continue.",
       },
       {
         id: "window",
@@ -85,7 +111,8 @@ const scenes = [
         y: 35,
         width: 12,
         type: "neutral",
-        dialogue: "Through the window, the forest looks calm."
+        portrait: "thinking",
+        dialogue: "Through the window, the forest looks calm.",
       },
       {
         id: "book",
@@ -94,9 +121,10 @@ const scenes = [
         y: 48,
         width: 8,
         type: "neutral",
-        dialogue: "A storybook about three bears. That feels important..."
-      }
-    ]
+        portrait: "thinking",
+        dialogue: "A storybook about three bears. That feels important...",
+      },
+    ],
   },
 
   {
@@ -104,11 +132,11 @@ const scenes = [
     background: "assets/backgrounds/kitchen.png",
     nextSceneId: "bedroom",
     bounds: {
-  minX: 8,
-  maxX: 92,
-  minY: 45,
-  maxY: 85
-},
+      minX: 8,
+      maxX: 92,
+      minY: 45,
+      maxY: 85,
+    },
     objects: [
       {
         id: "hot-porridge",
@@ -117,7 +145,8 @@ const scenes = [
         y: 60,
         width: 10,
         type: "wrong",
-        dialogue: "Ouch! This porridge is too hot."
+        portrait: "annoyed",
+        dialogue: "Ouch! This porridge is too hot.",
       },
       {
         id: "cold-porridge",
@@ -126,7 +155,8 @@ const scenes = [
         y: 60,
         width: 10,
         type: "wrong",
-        dialogue: "This porridge is too cold."
+        portrait: "annoyed",
+        dialogue: "This porridge is too cold.",
       },
       {
         id: "just-right-porridge",
@@ -135,7 +165,8 @@ const scenes = [
         y: 60,
         width: 10,
         type: "correct",
-        dialogue: "This porridge is just right. Zehava feels sleepy now..."
+        portrait: "happy",
+        dialogue: "This porridge is just right. Zehava feels sleepy now...",
       },
       {
         id: "pot",
@@ -144,7 +175,8 @@ const scenes = [
         y: 42,
         width: 10,
         type: "neutral",
-        dialogue: "A big cooking pot. Someone has been making porridge."
+        portrait: "thinking",
+        dialogue: "A big cooking pot. Someone has been making porridge.",
       },
       {
         id: "oven",
@@ -153,7 +185,8 @@ const scenes = [
         y: 55,
         width: 14,
         type: "neutral",
-        dialogue: "The oven is warm, but there is nothing useful inside."
+        portrait: "thinking",
+        dialogue: "The oven is warm, but there is nothing useful inside.",
       },
       {
         id: "sink",
@@ -162,9 +195,10 @@ const scenes = [
         y: 55,
         width: 12,
         type: "neutral",
-        dialogue: "A tiny sink with a few drops of water."
-      }
-    ]
+        portrait: "thinking",
+        dialogue: "A tiny sink with a few drops of water.",
+      },
+    ],
   },
 
   {
@@ -172,11 +206,11 @@ const scenes = [
     background: "assets/backgrounds/bedroom.png",
     nextSceneId: "end",
     bounds: {
-  minX: 8,
-  maxX: 92,
-  minY: 45,
-  maxY: 85
-},
+      minX: 8,
+      maxX: 92,
+      minY: 45,
+      maxY: 85,
+    },
     objects: [
       {
         id: "hard-bed",
@@ -185,7 +219,8 @@ const scenes = [
         y: 62,
         width: 18,
         type: "wrong",
-        dialogue: "This bed is too hard!"
+        portrait: "annoyed",
+        dialogue: "This bed is too hard!",
       },
       {
         id: "soft-bed",
@@ -194,7 +229,8 @@ const scenes = [
         y: 62,
         width: 18,
         type: "wrong",
-        dialogue: "This bed is too soft!"
+        portrait: "annoyed",
+        dialogue: "This bed is too soft!",
       },
       {
         id: "just-right-bed",
@@ -203,9 +239,10 @@ const scenes = [
         y: 62,
         width: 18,
         type: "correct",
-        dialogue: "This bed is just right. Zehava curls up and falls asleep..."
-      }
-    ]
+        portrait: "happy",
+        dialogue: "This bed is just right. Zehava curls up and falls asleep...",
+      },
+    ],
   },
 
   {
@@ -213,11 +250,11 @@ const scenes = [
     background: "assets/backgrounds/end-scene.png",
     nextSceneId: null,
     bounds: {
-  minX: 8,
-  maxX: 92,
-  minY: 45,
-  maxY: 85
-},
+      minX: 8,
+      maxX: 92,
+      minY: 45,
+      maxY: 85,
+    },
     objects: [
       {
         id: "sleeping-zehava",
@@ -226,33 +263,68 @@ const scenes = [
         y: 62,
         width: 24,
         type: "neutral",
-        dialogue: "The bears return home and find Zehava sleeping. Startled, she wakes up and runs safely back into the forest. The end."
-      }
-    ]
-  }
+        portrait: "thinking",
+        dialogue:
+          "The bears return home and find Zehava sleeping. Startled, she wakes up and runs safely back into the forest. The end.",
+      },
+    ],
+  },
 ];
+
 const sceneElement = document.getElementById("scene");
 const objectLayer = document.getElementById("objectLayer");
-
 const zehava = document.getElementById("zehava");
 
 const dialogueOverlay = document.getElementById("dialogueOverlay");
 const dialogueText = document.getElementById("dialogueText");
 const dialogueButton = document.getElementById("dialogueButton");
 const dialoguePortrait = document.getElementById("dialoguePortrait");
-const livesUI = document.getElementById("livesUI");
+
+const inventoryUI = document.getElementById("inventoryUI");
+
+const dialoguePortraits = {
+  happy: "assets/characters/emotes/happy.png",
+  thinking: "assets/characters/emotes/thinking.png",
+  annoyed: "assets/characters/emotes/annoyed.png",
+};
 
 let currentSceneIndex = 0;
-
 let lives = 3;
-
 let isMoving = false;
-
 let pendingNextScene = null;
-
 let gameOver = false;
-
 let debugPositionEnabled = true;
+let hasKey = false;
+
+const startZehavaPosition = {
+  x: 10,
+  y: 70,
+};
+
+const gameOverText = "Zehava wasted too much time. Try again tomorrow morning.";
+
+const zehavaAnimations = [
+  "assets/characters/1.png",
+  "assets/characters/2.png",
+  "assets/characters/3.png",
+  "assets/characters/4.png",
+  "assets/characters/5.png",
+  "assets/characters/6.png",
+  "assets/characters/7.png",
+  "assets/characters/8.png",
+  "assets/characters/9.png",
+  "assets/characters/10.png",
+];
+
+let walkAnimationInterval = null;
+let currentAnimationFrame = 0;
+
+let zehavaPosition = {
+  x: startZehavaPosition.x,
+  y: startZehavaPosition.y,
+};
+
+zehava.src = zehavaAnimations[0];
 
 function showDebugPosition(x, y) {
   if (!debugPositionEnabled) {
@@ -261,52 +333,22 @@ function showDebugPosition(x, y) {
 
   console.log(`Clicked position: x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
 }
-const startZehavaPosition = {
-  x: 10,
-  y: 70,
-};
 
-const gameOverText = "Zehava wasted too much time. Try again tomorrow morning.";
-const zehavaSprites = {
-  left: "assets/characters/zehava-left.png",
-  right: "assets/characters/zehava-right.png",
-};
-const zehavaAnimations = {
-  right: [
-    "assets/characters/right/walk1.png",
-    "assets/characters/right/walk2.png",
-    "assets/characters/right/walk3.png",
-  ],
-
-  left: [
-    "assets/characters/left/walk1.png",
-    "assets/characters/left/walk2.png",
-    "assets/characters/left/walk3.png",
-  ],
-};
-let currentDirection = "right";
-
-let walkAnimationInterval = null;
-
-let currentAnimationFrame = 0;
-let zehavaPosition = {
-  x: startZehavaPosition.x,
-  y: startZehavaPosition.y,
-};
-zehava.src = zehavaAnimations.right[0];
 function startWalkAnimation(direction) {
   stopWalkAnimation();
 
-  currentDirection = direction;
+  if (direction === "left") {
+    zehava.style.transform = "translate(-50%, -50%) scaleX(-1)";
+  } else {
+    zehava.style.transform = "translate(-50%, -50%) scaleX(1)";
+  }
 
   walkAnimationInterval = setInterval(() => {
-    const frames = zehavaAnimations[currentDirection];
-
-    zehava.src = frames[currentAnimationFrame];
+    zehava.src = zehavaAnimations[currentAnimationFrame];
 
     currentAnimationFrame++;
 
-    if (currentAnimationFrame >= frames.length) {
+    if (currentAnimationFrame >= zehavaAnimations.length) {
       currentAnimationFrame = 0;
     }
   }, 180);
@@ -316,12 +358,11 @@ function stopWalkAnimation() {
   clearInterval(walkAnimationInterval);
 
   currentAnimationFrame = 0;
-
-  zehava.src = zehavaAnimations[currentDirection][0];
+  zehava.src = zehavaAnimations[0];
 }
+
 function renderScene(scene) {
   sceneElement.style.backgroundImage = `url('${scene.background}')`;
-
   objectLayer.innerHTML = "";
 
   scene.objects.forEach((object) => {
@@ -332,18 +373,19 @@ function renderScene(scene) {
 
     button.style.left = `${object.x}%`;
     button.style.top = `${object.y}%`;
-
     button.style.width = `${object.width}%`;
     button.style.height = `${object.width}%`;
 
     button.setAttribute("aria-label", object.id);
 
-    const image = document.createElement("img");
+    if (object.image) {
+      const image = document.createElement("img");
 
-    image.src = object.image;
-    image.alt = object.id;
+      image.src = object.image;
+      image.alt = object.id;
 
-    button.appendChild(image);
+      button.appendChild(image);
+    }
 
     button.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -365,9 +407,7 @@ function moveZehavaTo(x, y, callback) {
   const clampedPosition = clampToSceneBounds(x, y);
 
   const targetDirection =
-    clampedPosition.x >= zehavaPosition.x
-      ? "right"
-      : "left";
+    clampedPosition.x >= zehavaPosition.x ? "right" : "left";
 
   startWalkAnimation(targetDirection);
 
@@ -395,12 +435,52 @@ function handleObjectClick(object) {
     return;
   }
 
+  if (object.type === "keyItem") {
+    hasKey = true;
+
+    if (inventoryUI) {
+      inventoryUI.classList.remove("hidden");
+    }
+
+    showDialogue(object.dialogue, {
+      isGameOver: false,
+      portrait: object.portrait || "happy",
+    });
+
+    return;
+  }
+
+  if (object.type === "lockedDoor") {
+    if (!hasKey) {
+      showDialogue("The door is locked tight. Zehava needs to find a key first.", {
+        isGameOver: false,
+        portrait: "thinking",
+      });
+
+      return;
+    }
+
+    showDialogue("Zehava uses the wooden key and opens the bears' house.", {
+      isGameOver: false,
+      portrait: "happy",
+    });
+
+    const currentScene = scenes[currentSceneIndex];
+
+    pendingNextScene =
+      scenes.find((scene) => scene.id === currentScene.nextSceneId) || null;
+
+    return;
+  }
+
   showDialogue(object.dialogue, {
     isGameOver: false,
+    portrait: object.portrait || "thinking",
   });
 
   if (object.type === "correct") {
     const currentScene = scenes[currentSceneIndex];
+
     pendingNextScene =
       scenes.find((scene) => scene.id === currentScene.nextSceneId) || null;
   }
@@ -415,6 +495,9 @@ function showDialogue(text, options = {}) {
 
   dialogueButton.textContent = options.isGameOver ? "Try Again" : "Continue";
 
+  const portraitType = options.portrait || "thinking";
+  dialoguePortrait.src = dialoguePortraits[portraitType];
+
   dialogueOverlay.classList.remove("hidden");
 }
 
@@ -428,15 +511,20 @@ function goToNextScene() {
     return;
   }
 
-  const nextSceneIndex = scenes.findIndex((scene) => scene.id === pendingNextScene.id);
+  const nextSceneIndex = scenes.findIndex(
+    (scene) => scene.id === pendingNextScene.id
+  );
 
   if (nextSceneIndex >= 0) {
     currentSceneIndex = nextSceneIndex;
+
     renderScene(scenes[currentSceneIndex]);
+
     zehava.style.left = `${startZehavaPosition.x}%`;
     zehava.style.top = `${startZehavaPosition.y}%`;
+
     zehavaPosition.x = startZehavaPosition.x;
-zehavaPosition.y = startZehavaPosition.y;
+    zehavaPosition.y = startZehavaPosition.y;
   }
 
   pendingNextScene = null;
@@ -455,7 +543,10 @@ function loseLife() {
   if (lives <= 0) {
     gameOver = true;
     pendingNextScene = null;
-    showDialogue(gameOverText, { isGameOver: true });
+    showDialogue(gameOverText, {
+      isGameOver: true,
+      portrait: "annoyed",
+    });
   }
 }
 
@@ -464,6 +555,11 @@ function resetSceneState() {
   gameOver = false;
   currentSceneIndex = 0;
   lives = 3;
+  hasKey = false;
+
+  if (inventoryUI) {
+    inventoryUI.classList.add("hidden");
+  }
 
   const lifeIcons = document.querySelectorAll(".life-icon");
 
@@ -474,6 +570,9 @@ function resetSceneState() {
   zehava.style.left = `${startZehavaPosition.x}%`;
   zehava.style.top = `${startZehavaPosition.y}%`;
 
+  zehavaPosition.x = startZehavaPosition.x;
+  zehavaPosition.y = startZehavaPosition.y;
+
   renderScene(scenes[currentSceneIndex]);
 }
 
@@ -482,6 +581,7 @@ function restartGame() {
   hideDialogue();
   dialogueButton.textContent = "Continue";
 }
+
 function clampToSceneBounds(x, y) {
   const currentScene = scenes[currentSceneIndex];
   const bounds = currentScene.bounds;
@@ -495,6 +595,7 @@ function clampToSceneBounds(x, y) {
     y: Math.min(Math.max(y, bounds.minY), bounds.maxY),
   };
 }
+
 sceneElement.addEventListener("click", (event) => {
   if (event.target.closest(".object")) {
     return;
@@ -503,9 +604,9 @@ sceneElement.addEventListener("click", (event) => {
   const rect = sceneElement.getBoundingClientRect();
 
   const x = ((event.clientX - rect.left) / rect.width) * 100;
-
   const y = ((event.clientY - rect.top) / rect.height) * 100;
-showDebugPosition(x, y);
+
+  showDebugPosition(x, y);
   moveZehavaTo(x, y);
 });
 
@@ -516,7 +617,6 @@ dialogueButton.addEventListener("click", () => {
   }
 
   goToNextScene();
-  hideDialogue();
 });
 
 resetSceneState();

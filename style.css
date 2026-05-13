@@ -26,6 +26,7 @@ button,
 .object:focus-visible {
   cursor: url("assets/ui/bear-claw-hover.png") 8 8, pointer;
 }
+
 body {
   font-family: Arial, sans-serif;
   background: #111;
@@ -73,9 +74,8 @@ body {
 }
 
 .object:hover,
-.object:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.85);
-  outline-offset: 3px;
+.object img:hover {
+  filter: brightness(1.1);
 }
 
 .zehava {
@@ -153,12 +153,31 @@ body {
 }
 
 .life-icon {
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
 }
 
 .life-icon.lost {
   opacity: 0.25;
   filter: grayscale(1);
+}
+
+/* Inventory */
+
+.inventory-ui {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 40;
+}
+
+.inventory-ui.hidden {
+  display: none;
+}
+
+.inventory-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
 }
