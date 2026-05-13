@@ -19,8 +19,8 @@ const gameState = {
 };
 
 const startZehavaPosition = {
-  x: 10,
-  y: 70,
+  x: 25,
+  y: 60,
 };
 
 const gameOverText =

@@ -49,9 +49,12 @@ function renderScene(scene) {
     button.addEventListener("click", (event) => {
       event.stopPropagation();
 
-      moveZehavaTo(object.x, object.y + 10, () => {
-        handleObjectClick(object);
-      });
+     const walkToX = object.walkToX ?? object.x;
+const walkToY = object.walkToY ?? object.y + 10;
+
+moveZehavaTo(walkToX, walkToY, () => {
+  handleObjectClick(object);
+});
     });
 
     objectLayer.appendChild(button);
