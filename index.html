@@ -7,7 +7,12 @@
   <title>Zehava and the Three Bears</title>
 
   <link rel="stylesheet" href="style.css" />
-  <script src="main.js" defer></script>
+<script src="js/scenes.js" defer></script>
+<script src="js/gameState.js" defer></script>
+<script src="js/player.js" defer></script>
+<script src="js/inventory.js" defer></script>
+<script src="js/dialogue.js" defer></script>
+<script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -73,13 +78,36 @@
       </div>
 
       <!-- Inventory UI -->
-      <div id="inventoryUI" class="inventory-ui hidden">
-        <img
-          src="assets/objects/wooden-key.png"
-          class="inventory-icon"
-          alt="Wooden Key"
-        />
-      </div>
+      <div id="inventoryUI" class="inventory-ui">
+
+  <div class="inventory-slot">
+    <img
+      id="keyInventoryIcon"
+      src="assets/objects/wooden-key.png"
+      class="inventory-icon"
+      alt="Wooden Key"
+    />
+  </div>
+
+  <div class="inventory-slot">
+    <img
+      id="chairInventoryIcon"
+      src="assets/objects/just-right-chair.png"
+      class="inventory-icon"
+      alt="Right Chair"
+    />
+  </div>
+
+  <div class="inventory-slot">
+    <img
+      id="porridgeInventoryIcon"
+      src="assets/objects/just-right-porridge.png"
+      class="inventory-icon"
+      alt="Right Porridge"
+    />
+  </div>
+
+</div>
 
     </section>
 
