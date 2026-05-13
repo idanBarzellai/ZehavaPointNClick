@@ -14,17 +14,16 @@ body {
   margin: 0;
 }
 
+body,
+button {
+  cursor: url("assets/ui/bear-claw-cursor.png") 16 16, auto;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #111;
   color: var(--text);
   overflow: hidden;
-  cursor: url("assets/ui/bear-claw-cursor.png") 16 16, auto;
-}
-
-button {
-  font: inherit;
-  cursor: url("assets/ui/bear-claw-cursor.png") 16 16, pointer;
 }
 
 .game-container {
