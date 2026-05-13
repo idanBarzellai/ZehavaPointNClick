@@ -45,6 +45,8 @@ function renderScene(scene) {
 
       button.appendChild(image);
     }
+  startBackgroundMusic();
+  playInteractSound();
 
     button.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -69,6 +71,8 @@ function handleObjectClick(object) {
   if (object.type === "keyItem") {
     gameState.hasKey = true;
     showKeyInInventory();
+      playCorrectSound();
+
 
     showDialogue(object.dialogue, {
       isGameOver: false,
@@ -87,11 +91,13 @@ function handleObjectClick(object) {
 
       return;
     }
-
+// gameState.hasKey = false;
+// hideKeyInInventory();
     showDialogue("Zehava uses the wooden key and opens the bears' house.", {
       isGameOver: false,
       portrait: "happy",
     });
+    
 
     setPendingScene("living-room", {
       x: 48,
@@ -104,6 +110,7 @@ function handleObjectClick(object) {
   if (object.type === "unlockKitchen") {
     gameState.satOnRightChair = true;
     showChairInInventory();
+  playCorrectSound();
 
     showDialogue(object.dialogue, {
       isGameOver: false,
@@ -116,6 +123,7 @@ function handleObjectClick(object) {
   if (object.type === "unlockBedroom") {
     gameState.ateRightPorridge = true;
     showPorridgeInInventory();
+  playCorrectSound();
 
     showDialogue(object.dialogue, {
       isGameOver: false,
@@ -134,6 +142,7 @@ function handleObjectClick(object) {
 
       return;
     }
+playCorrectSound();
 
     showDialogue("The kitchen door opens.", {
       isGameOver: false,
@@ -141,8 +150,8 @@ function handleObjectClick(object) {
     });
 
     setPendingScene("kitchen", {
-      x: 88,
-      y: 55,
+      x: 11,
+      y: 70,
     });
 
     return;
@@ -157,6 +166,7 @@ function handleObjectClick(object) {
 
       return;
     }
+playCorrectSound();
 
     showDialogue("The bedroom door opens.", {
       isGameOver: false,
@@ -164,8 +174,8 @@ function handleObjectClick(object) {
     });
 
     setPendingScene("bedroom", {
-      x: 10,
-      y: 55,
+      x: 89,
+      y: 50,
     });
 
     return;
@@ -191,6 +201,8 @@ function handleObjectClick(object) {
   });
 
   if (object.type === "correct") {
+      playCorrectSound();
+
     const currentScene = getCurrentScene();
 
     setPendingScene(
@@ -200,6 +212,8 @@ function handleObjectClick(object) {
   }
 
   if (object.type === "wrong") {
+      playWrongSound();
+
     loseLife();
   }
 }
@@ -290,6 +304,8 @@ function restartGame() {
 }
 
 sceneElement.addEventListener("click", (event) => {
+    playInteractSound();
+
   if (isDialogueClick(event.target)) {
     return;
   }
@@ -304,6 +320,7 @@ sceneElement.addEventListener("click", (event) => {
   const y = ((event.clientY - rect.top) / rect.height) * 100;
 
   showDebugPosition(x, y);
+  startBackgroundMusic();
   moveZehavaTo(x, y);
 });
 
