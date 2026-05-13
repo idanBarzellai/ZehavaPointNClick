@@ -16,7 +16,7 @@ const scenes = [
         x: 76,
         y: 52,
         width: 14,
-        correct: true,
+        type: "correct",
         dialogue: "The little house is quiet. Zehava wonders who lives inside..."
       },
       {
@@ -25,7 +25,7 @@ const scenes = [
         x: 25,
         y: 72,
         width: 10,
-        correct: false,
+        type: "neutral",
         dialogue: "Sweet berries! But Zehava is curious about the house, not the forest snacks."
       }
     ]
@@ -48,7 +48,7 @@ const scenes = [
         x: 28,
         y: 62,
         width: 16,
-        correct: false,
+        type: "wrong",
         dialogue: "This chair is much too big!"
       },
       {
@@ -57,7 +57,7 @@ const scenes = [
         x: 50,
         y: 66,
         width: 13,
-        correct: false,
+        type: "wrong",
         dialogue: "This chair is much too small!"
       },
       {
@@ -66,7 +66,7 @@ const scenes = [
         x: 70,
         y: 64,
         width: 14,
-        correct: true,
+        type: "correct",
         dialogue: "This chair feels just right. Zehava wants to explore further."
       },
       {
@@ -75,7 +75,7 @@ const scenes = [
         x: 50,
         y: 82,
         width: 22,
-        correct: false,
+        type: "neutral",
         dialogue: "A cozy carpet, but it does not help Zehava continue."
       },
       {
@@ -84,7 +84,7 @@ const scenes = [
         x: 82,
         y: 35,
         width: 12,
-        correct: false,
+        type: "neutral",
         dialogue: "Through the window, the forest looks calm."
       },
       {
@@ -93,7 +93,7 @@ const scenes = [
         x: 37,
         y: 48,
         width: 8,
-        correct: false,
+        type: "neutral",
         dialogue: "A storybook about three bears. That feels important..."
       }
     ]
@@ -116,7 +116,7 @@ const scenes = [
         x: 30,
         y: 60,
         width: 10,
-        correct: false,
+        type: "wrong",
         dialogue: "Ouch! This porridge is too hot."
       },
       {
@@ -125,7 +125,7 @@ const scenes = [
         x: 50,
         y: 60,
         width: 10,
-        correct: false,
+        type: "wrong",
         dialogue: "This porridge is too cold."
       },
       {
@@ -134,7 +134,7 @@ const scenes = [
         x: 70,
         y: 60,
         width: 10,
-        correct: true,
+        type: "correct",
         dialogue: "This porridge is just right. Zehava feels sleepy now..."
       },
       {
@@ -143,7 +143,7 @@ const scenes = [
         x: 22,
         y: 42,
         width: 10,
-        correct: false,
+        type: "neutral",
         dialogue: "A big cooking pot. Someone has been making porridge."
       },
       {
@@ -152,7 +152,7 @@ const scenes = [
         x: 84,
         y: 55,
         width: 14,
-        correct: false,
+        type: "neutral",
         dialogue: "The oven is warm, but there is nothing useful inside."
       },
       {
@@ -161,7 +161,7 @@ const scenes = [
         x: 13,
         y: 55,
         width: 12,
-        correct: false,
+        type: "neutral",
         dialogue: "A tiny sink with a few drops of water."
       }
     ]
@@ -184,7 +184,7 @@ const scenes = [
         x: 25,
         y: 62,
         width: 18,
-        correct: false,
+        type: "wrong",
         dialogue: "This bed is too hard!"
       },
       {
@@ -193,7 +193,7 @@ const scenes = [
         x: 50,
         y: 62,
         width: 18,
-        correct: false,
+        type: "wrong",
         dialogue: "This bed is too soft!"
       },
       {
@@ -202,7 +202,7 @@ const scenes = [
         x: 75,
         y: 62,
         width: 18,
-        correct: true,
+        type: "correct",
         dialogue: "This bed is just right. Zehava curls up and falls asleep..."
       }
     ]
@@ -225,7 +225,7 @@ const scenes = [
         x: 50,
         y: 62,
         width: 24,
-        correct: false,
+        type: "neutral",
         dialogue: "The bears return home and find Zehava sleeping. Startled, she wakes up and runs safely back into the forest. The end."
       }
     ]
