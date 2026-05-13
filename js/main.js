@@ -2,6 +2,8 @@ const sceneElement = document.getElementById("scene");
 const objectLayer = document.getElementById("objectLayer");
 const endingOverlay = document.getElementById("endingOverlay");
 const creditsImage = document.getElementById("creditsImage");
+const prologueOverlay = document.getElementById("prologueOverlay");
+const creditsRestartButton = document.getElementById("creditsRestartButton");
 
 function showDebugPosition(x, y) {
   if (!gameState.debugPositionEnabled) {
@@ -206,6 +208,7 @@ playCorrectSound();
 
   if (object.id === "just-right-bed") {
   playCorrectSound();
+  showBedInInventory();
 
   showDialogue("Then she fell into a deep sleep...", {
     isGameOver: false,
@@ -330,9 +333,33 @@ function resetSceneState() {
 }
 
 function restartGame() {
+  endingOverlay.classList.add("hidden");
+  endingOverlay.classList.remove("visible");
+
+  creditsImage.classList.remove("visible");
+  creditsRestartButton.classList.remove("visible");
+
   resetSceneState();
   hideDialogue();
   dialogueButton.textContent = "Continue";
+}
+
+function startEndingSequence() {
+  gameState.gameOver = true;
+
+  endingOverlay.classList.remove("hidden");
+
+  setTimeout(() => {
+    endingOverlay.classList.add("visible");
+  }, 50);
+
+  setTimeout(() => {
+    creditsImage.classList.add("visible");
+  }, 2500);
+
+  setTimeout(() => {
+    creditsRestartButton.classList.add("visible");
+  }, 2500);
 }
 
 sceneElement.addEventListener("click", (event) => {
@@ -366,17 +393,14 @@ dialogueButton.addEventListener("click", () => {
 });
 
 resetSceneState();
+creditsRestartButton.addEventListener("click", () => {
+  restartGame();
+});
 
-function startEndingSequence() {
-  gameState.gameOver = true;
+setTimeout(() => {
+  prologueOverlay.classList.add("hidden");
+}, 2000);
 
-  endingOverlay.classList.remove("hidden");
-
-  setTimeout(() => {
-    endingOverlay.classList.add("visible");
-  }, 50);
-
-  setTimeout(() => {
-    creditsImage.classList.add("visible");
-  }, 2500);
-}
+setTimeout(() => {
+  prologueOverlay.remove();
+}, 4200);

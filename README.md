@@ -1,23 +1,117 @@
-# Project Starter
+# Zehava and the Three Bears
 
-Team members: Idan Barzellai, Danielle Franzes
+A short narrative point-and-click web game inspired by **Goldilocks and the Three Bears**. The player controls **Zehava** as she explores the forest and the bears’ house, clicks objects, and finds the correct path through the story.
 
-## Short Description
+This was created as an academic project focused on narrative design, interaction, front-end web development, and environmental storytelling.
 
-This repository is reset to a clean starter state for rebuilding the point-and-click game from the beginning.
+---
+
+## Team Members
+
+- Idan Barzellai
+- Danielle Franzes
+
+---
 
 ## Technologies Used
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
+
+---
+
+## Main Features
+
+### Gameplay
+
+- Click to move Zehava and interact with objects
+- Progress through multiple scenes: forest, living room, kitchen, bedroom, and ending
+- Collect key items such as the wooden key, the correct chair, and the correct porridge
+- Use dialogue boxes with character portraits and emotion states
+- Manage lives when wrong choices are made
+- Enjoy movement, walking animations, and audio feedback
+
+---
 
 ## How to Run
 
-1. Open `index.html` in a browser.
-2. Press `Start from beginning` to activate the starter scene.
+- Clone or download the repository.
+- Open the project folder.
+- Run it with a local server.
 
-## Notes
+Recommended: VS Code + Live Server extension, then open `index.html`.
 
-- The previous scene and gameplay flow have been cleared.
-- This baseline is meant for rebuilding the experience step by step.
+---
+
+## Gameplay Goal
+
+Help Zehava find the correct choices inside the bears' house:
+
+- Find the hidden key
+- Sit on the correct chair
+- Eat the correct porridge
+- Sleep in the correct bed
+
+Wrong choices reduce the player's lives.
+
+---
+
+## Inspirations
+
+Inspired by:
+
+- Classic point-and-click adventure games
+- Fairytale storytelling
+- Interactive narrative experiences
+
+---
+
+## Future Improvements
+
+Possible future additions:
+
+- More dialogue choices
+- Additional puzzles
+- Save/load system
+- Mobile optimization
+- More animations and sound polish
+
+---
+
+## Credits
+
+Created by:
+
+- Idan Barzellai
+- Danielle Franzes
+
+Academic Project - Narrative Point-and-Click Game
+
+---
+
+## Project Structure
+
+```text
+project/
+│
+├── index.html
+├── style.css
+│
+├── js/
+│   ├── scenes.js
+│   ├── gameState.js
+│   ├── player.js
+│   ├── inventory.js
+│   ├── dialogue.js
+│   ├── audio.js
+│   └── main.js
+│
+├── assets/
+│   ├── audio/
+│   ├── backgrounds/
+│   ├── characters/
+│   ├── objects/
+│   └── ui/
+```
+

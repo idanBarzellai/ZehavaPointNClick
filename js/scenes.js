@@ -166,7 +166,7 @@ const scenes = [
         id: "book",
         image: "assets/objects/book.png",
         x: 43,
-        y: 13,
+        y: 3,
         width: 5,
         type: "neutral",
         portrait: "thinking",

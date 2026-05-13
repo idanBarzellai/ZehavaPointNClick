@@ -186,11 +186,14 @@ body {
 
 .inventory-ui {
   position: absolute;
-  left: 24px;
-  bottom: 24px;
+  right: 24px;
+  top: 85%;
+
+
   z-index: 40;
 
   display: flex;
+
   gap: 12px;
 }
 
@@ -258,4 +261,53 @@ body {
 
 .credits-image.visible {
   opacity: 1;
+}
+
+.prologue-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+
+  background: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  transition: opacity 2s ease;
+  pointer-events: none;
+}
+
+.prologue-overlay.hidden {
+  opacity: 0;
+}
+
+.prologue-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.credits-restart-button {
+  position: absolute;
+  bottom: 85px;
+
+  padding: 12px 28px;
+  border: 0;
+  border-radius: 999px;
+
+  background: #d8b46a;
+  color: #2c1b12;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.credits-restart-button.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
