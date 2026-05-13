@@ -18,6 +18,10 @@ body,
 button {
   cursor: url("assets/ui/bear-claw-cursor.png") 16 16, auto;
 }
+.object:hover,
+.object:focus-visible {
+  cursor: url("assets/ui/bear-claw-hover.png") 16 16, pointer;
+}
 
 body {
   font-family: Arial, sans-serif;

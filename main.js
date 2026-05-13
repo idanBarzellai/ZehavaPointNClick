@@ -252,13 +252,73 @@ let pendingNextScene = null;
 
 let gameOver = false;
 
+let debugPositionEnabled = true;
+
+function showDebugPosition(x, y) {
+  if (!debugPositionEnabled) {
+    return;
+  }
+
+  console.log(`Clicked position: x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
+}
 const startZehavaPosition = {
   x: 10,
   y: 70,
 };
 
-const gameOverText = "Zehava lost all her lives. Press Try Again to restart the story.";
+const gameOverText = "Zehava wasted too much time. Try again tomorrow morning.";
+const zehavaSprites = {
+  left: "assets/characters/zehava-left.png",
+  right: "assets/characters/zehava-right.png",
+};
+const zehavaAnimations = {
+  right: [
+    "assets/characters/right/walk1.png",
+    "assets/characters/right/walk2.png",
+    "assets/characters/right/walk3.png",
+  ],
 
+  left: [
+    "assets/characters/left/walk1.png",
+    "assets/characters/left/walk2.png",
+    "assets/characters/left/walk3.png",
+  ],
+};
+let currentDirection = "right";
+
+let walkAnimationInterval = null;
+
+let currentAnimationFrame = 0;
+let zehavaPosition = {
+  x: startZehavaPosition.x,
+  y: startZehavaPosition.y,
+};
+zehava.src = zehavaAnimations.right[0];
+function startWalkAnimation(direction) {
+  stopWalkAnimation();
+
+  currentDirection = direction;
+
+  walkAnimationInterval = setInterval(() => {
+    const frames = zehavaAnimations[currentDirection];
+
+    zehava.src = frames[currentAnimationFrame];
+
+    currentAnimationFrame++;
+
+    if (currentAnimationFrame >= frames.length) {
+      currentAnimationFrame = 0;
+    }
+  }, 180);
+}
+
+function stopWalkAnimation() {
+  clearInterval(walkAnimationInterval);
+
+  currentAnimationFrame = 0;
+
+  zehava.src = zehavaAnimations[currentDirection][0];
+}
 function renderScene(scene) {
   sceneElement.style.backgroundImage = `url('${scene.background}')`;
 
@@ -304,6 +364,13 @@ function moveZehavaTo(x, y, callback) {
 
   const clampedPosition = clampToSceneBounds(x, y);
 
+  const targetDirection =
+    clampedPosition.x >= zehavaPosition.x
+      ? "right"
+      : "left";
+
+  startWalkAnimation(targetDirection);
+
   isMoving = true;
 
   zehava.style.left = `${clampedPosition.x}%`;
@@ -311,6 +378,11 @@ function moveZehavaTo(x, y, callback) {
 
   setTimeout(() => {
     isMoving = false;
+
+    zehavaPosition.x = clampedPosition.x;
+    zehavaPosition.y = clampedPosition.y;
+
+    stopWalkAnimation();
 
     if (callback) {
       callback();
@@ -327,10 +399,13 @@ function handleObjectClick(object) {
     isGameOver: false,
   });
 
-  if (object.correct) {
+  if (object.type === "correct") {
     const currentScene = scenes[currentSceneIndex];
-    pendingNextScene = scenes.find((scene) => scene.id === currentScene.nextSceneId) || null;
-  } else {
+    pendingNextScene =
+      scenes.find((scene) => scene.id === currentScene.nextSceneId) || null;
+  }
+
+  if (object.type === "wrong") {
     loseLife();
   }
 }
@@ -360,6 +435,8 @@ function goToNextScene() {
     renderScene(scenes[currentSceneIndex]);
     zehava.style.left = `${startZehavaPosition.x}%`;
     zehava.style.top = `${startZehavaPosition.y}%`;
+    zehavaPosition.x = startZehavaPosition.x;
+zehavaPosition.y = startZehavaPosition.y;
   }
 
   pendingNextScene = null;
@@ -428,7 +505,7 @@ sceneElement.addEventListener("click", (event) => {
   const x = ((event.clientX - rect.left) / rect.width) * 100;
 
   const y = ((event.clientY - rect.top) / rect.height) * 100;
-
+showDebugPosition(x, y);
   moveZehavaTo(x, y);
 });
 
