@@ -1,44 +1,49 @@
 const inventoryUI = document.getElementById("inventoryUI");
 
-const keyInventoryIcon =
-  document.getElementById("keyInventoryIcon");
-
-const chairInventoryIcon =
-  document.getElementById("chairInventoryIcon");
+const progressInventoryIcon =
+  document.getElementById("progressInventoryIcon");
 
 const porridgeInventoryIcon =
   document.getElementById("porridgeInventoryIcon");
 
+const bedInventoryIcon =
+  document.getElementById("bedInventoryIcon");
+
 function showKeyInInventory() {
-  keyInventoryIcon.classList.add("active");
+  progressInventoryIcon.src =
+    "assets/objects/wooden-key.png";
+
+  progressInventoryIcon.classList.add("active");
 }
 
 function showChairInInventory() {
-  chairInventoryIcon.classList.add("active");
+  progressInventoryIcon.src =
+    "assets/objects/just-right-chair.png";
+
+  progressInventoryIcon.classList.add("active");
+}
+
+function hideProgressInventory() {
+  progressInventoryIcon.classList.remove("active");
 }
 
 function showPorridgeInInventory() {
   porridgeInventoryIcon.classList.add("active");
 }
 
+function showBedInInventory() {
+  bedInventoryIcon.classList.add("active");
+}
+
 function resetInventory() {
-  keyInventoryIcon.classList.remove("active");
-  chairInventoryIcon.classList.remove("active");
+  progressInventoryIcon.classList.remove("active");
   porridgeInventoryIcon.classList.remove("active");
   bedInventoryIcon.classList.remove("active");
+
+  progressInventoryIcon.src =
+    "assets/objects/wooden-key.png";
 
   if (inventoryUI) {
     inventoryUI.classList.remove("has-item");
   }
-}
-
-const bedInventoryIcon =
-  document.getElementById("bedInventoryIcon");
-
-function hideKeyInInventory() {
-  keyInventoryIcon.classList.remove("active");
-}
-
-function showBedInInventory() {
-  bedInventoryIcon.classList.add("active");
 }

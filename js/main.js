@@ -1,5 +1,7 @@
 const sceneElement = document.getElementById("scene");
 const objectLayer = document.getElementById("objectLayer");
+const endingOverlay = document.getElementById("endingOverlay");
+const creditsImage = document.getElementById("creditsImage");
 
 function showDebugPosition(x, y) {
   if (!gameState.debugPositionEnabled) {
@@ -49,6 +51,8 @@ function renderScene(scene) {
   playInteractSound();
 
     button.addEventListener("click", (event) => {
+    playInteractSound();
+
       event.stopPropagation();
 
      const walkToX = object.walkToX ?? object.x;
@@ -91,8 +95,8 @@ function handleObjectClick(object) {
 
       return;
     }
-// gameState.hasKey = false;
-// hideKeyInInventory();
+gameState.hasKey = false;
+hideProgressInventory();
     showDialogue("Zehava uses the wooden key and opens the bears' house.", {
       isGameOver: false,
       portrait: "happy",
@@ -200,6 +204,22 @@ playCorrectSound();
     portrait: object.portrait || "thinking",
   });
 
+  if (object.id === "just-right-bed") {
+  playCorrectSound();
+
+  showDialogue("Then she fell into a deep sleep...", {
+    isGameOver: false,
+    portrait: "happy",
+  });
+
+  gameState.pendingNextScene = {
+    scene: null,
+    isEnding: true,
+  };
+
+  return;
+}
+
   if (object.type === "correct") {
       playCorrectSound();
 
@@ -216,9 +236,21 @@ playCorrectSound();
 
     loseLife();
   }
+
+  
 }
 
 function goToNextScene() {
+  if (
+    gameState.pendingNextScene &&
+    gameState.pendingNextScene.isEnding
+  ) {
+    hideDialogue();
+    gameState.pendingNextScene = null;
+    startEndingSequence();
+    return;
+  }
+
   if (!gameState.pendingNextScene) {
     hideDialogue();
     return;
@@ -304,11 +336,11 @@ function restartGame() {
 }
 
 sceneElement.addEventListener("click", (event) => {
-    playInteractSound();
 
   if (isDialogueClick(event.target)) {
     return;
   }
+    playInteractSound();
 
   if (event.target.closest(".object")) {
     return;
@@ -334,3 +366,17 @@ dialogueButton.addEventListener("click", () => {
 });
 
 resetSceneState();
+
+function startEndingSequence() {
+  gameState.gameOver = true;
+
+  endingOverlay.classList.remove("hidden");
+
+  setTimeout(() => {
+    endingOverlay.classList.add("visible");
+  }, 50);
+
+  setTimeout(() => {
+    creditsImage.classList.add("visible");
+  }, 2500);
+}
