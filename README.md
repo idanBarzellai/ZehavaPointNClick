@@ -6,24 +6,7 @@ This was created as an academic project focused on narrative design, interaction
 
 ---
 
-## Team Members
-
-- Idan Barzellai
-- Danielle Franzes
-
----
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-
----
-
-## Main Features
-
-### Gameplay
+## Gameplay
 
 - Click to move Zehava and interact with objects
 - Progress through multiple scenes: forest, living room, kitchen, bedroom, and ending
@@ -32,17 +15,6 @@ This was created as an academic project focused on narrative design, interaction
 - Manage lives when wrong choices are made
 - Enjoy movement, walking animations, and audio feedback
 
----
-
-## How to Run
-
-- Clone or download the repository.
-- Open the project folder.
-- Run it with a local server.
-
-Recommended: VS Code + Live Server extension, then open `index.html`.
-
----
 
 ## Gameplay Goal
 
@@ -57,38 +29,28 @@ Wrong choices reduce the player's lives.
 
 ---
 
-## Inspirations
-
-Inspired by:
-
-- Classic point-and-click adventure games
-- Fairytale storytelling
-- Interactive narrative experiences
-
----
-
-## Future Improvements
-
-Possible future additions:
-
-- More dialogue choices
-- Additional puzzles
-- Save/load system
-- Mobile optimization
-- More animations and sound polish
-
----
-
-## Credits
-
-Created by:
+## Team Members
 
 - Idan Barzellai
 - Danielle Franzes
 
-Academic Project - Narrative Point-and-Click Game
-
 ---
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+
+## How to Run
+
+- Clone or download the repository.
+- Open the project folder.
+- Run it with a local server.
+
+Recommended: VS Code + Live Server extension, then open `index.html`.
+
 
 ## Project Structure
 
@@ -114,4 +76,5 @@ project/
 │   ├── objects/
 │   └── ui/
 ```
+---
 
